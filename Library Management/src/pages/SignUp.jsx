@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 function SignUp() {
   const navigate = useNavigate();
-
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -22,10 +21,8 @@ function SignUp() {
       })
       .then((res) => {
         const data = res.data;
-        localStorage.setItem("token", data.token); // Store the token
-
-        // Redirect to the login page after successful signup
-        navigate("/login");
+        localStorage.setItem("token", data.token);
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);

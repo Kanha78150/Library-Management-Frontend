@@ -1,10 +1,17 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/signup");
   };
 
   return (
@@ -25,6 +32,12 @@ function Home() {
           <a href="/contact" className="text-white hover:text-blue-200">
             Contact
           </a>
+          <button
+            onClick={handleLogout}
+            className="text-white hover:text-blue-200 cursor-pointer"
+          >
+            Logout
+          </button>
         </div>
 
         <div className="md:hidden">
@@ -64,6 +77,12 @@ function Home() {
           <a href="/contact" className="block hover:text-blue-200">
             Contact
           </a>
+          <button
+            onClick={handleLogout}
+            className="block hover:text-blue-200 w-full text-left"
+          >
+            Logout
+          </button>
         </div>
       )}
     </nav>
