@@ -10,8 +10,6 @@ function SignUp() {
     const username = e.target.username.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-
-    console.log(name, username, email, password);
     axios
       .post("https://library-management-system-jc7v.onrender.com/api/signup", {
         name,
