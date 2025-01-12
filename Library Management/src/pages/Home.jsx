@@ -17,7 +17,7 @@ function Home() {
 
   const [products, setProducts] = useState([]);
 
-  function getProduct() {
+  function getProducts() {
     axios
       .get("https://library-management-system-jc7v.onrender.com/api/products", {
         headers: {
@@ -33,7 +33,7 @@ function Home() {
   }
 
   useEffect(() => {
-    getProduct();
+    getProducts();
   }, []);
 
   return (
