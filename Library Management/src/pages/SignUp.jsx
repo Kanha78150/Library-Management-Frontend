@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ function SignUp() {
       .then((res) => {
         const data = res.data;
         localStorage.setItem("token", data.token);
-        navigate("/");
+        navigate("/login");
       })
       .catch((err) => {
         console.log(err);
@@ -92,6 +92,18 @@ function SignUp() {
         <button className="w-full bg-blue-500 text-white px-4 py-3 mt-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
           Sign Up
         </button>
+
+        <div className="text-center mt-6">
+          <p className="text-sm text-gray-600">
+            Already have an account?{" "}
+            <Link
+              to="/login"
+              className="font-medium text-blue-600 hover:text-blue-500 transition-colors duration-200"
+            >
+              Login here
+            </Link>
+          </p>
+        </div>
       </form>
     </main>
   );

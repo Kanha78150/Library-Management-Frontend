@@ -12,7 +12,7 @@ function Home() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("/signup");
+    navigate("/login");
   };
 
   const [products, setProducts] = useState([]);
